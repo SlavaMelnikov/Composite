@@ -1,4 +1,4 @@
-package main;
+package by.melnikov.composite.main;
 
 public class Main {
     public static void main(String[] args) {

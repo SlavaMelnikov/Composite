@@ -1,6 +1,6 @@
-package entity;
+package by.melnikov.composite.entity;
 
-import entity.TextComponent;
+import by.melnikov.composite.entity.TextComponent;
 
 import java.util.ArrayList;
 import java.util.List;

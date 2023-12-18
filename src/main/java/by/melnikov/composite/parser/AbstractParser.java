@@ -1,7 +1,6 @@
-package parser;
+package by.melnikov.composite.parser;
 
-import entity.TextComponent;
-import entity.TextComposite;
+import by.melnikov.composite.entity.TextComposite;
 
 public abstract class AbstractParser {
     abstract public TextComposite parse(String text);

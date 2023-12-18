@@ -1,6 +1,6 @@
-package parser;
+package by.melnikov.composite.parser;
 
-import entity.TextComposite;
+import by.melnikov.composite.entity.TextComposite;
 
 public class ParagraphParser extends AbstractParser {
     private AbstractParser parser = new SentenceParser();

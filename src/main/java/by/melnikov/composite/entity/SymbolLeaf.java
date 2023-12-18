@@ -1,4 +1,4 @@
-package entity;
+package by.melnikov.composite.entity;
 
 public class SymbolLeaf implements TextComponent {
     private boolean isLetter;
