@@ -1,28 +1,30 @@
 package by.melnikov.composite.entity;
 
-import by.melnikov.composite.entity.TextComponent;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class TextComposite implements TextComponent {
-    public enum TypeTextComponent {
-        TEXT, PARAGRAPH, SENTENCE, LEXEMA, SYMBOL_LEAF
-    }
+    private final TextType textType;
     private final List<TextComponent> textComponents = new ArrayList<>();
 
+    public TextComposite(TextType type) {
+        this.textType = type;
+    }
+
     @Override
-    public void doSomeOperation() {
+    public String composeText() {
+        StringBuilder stringBuilder = new StringBuilder();
         for (TextComponent textComponent : textComponents) {
-            textComponent.doSomeOperation();
+            stringBuilder.append(textComponent.toString());
         }
+        return stringBuilder.toString();
     }
 
-    public void add(TextComponent textComponent) {
-        textComponents.add(textComponent);
+    public boolean add(TextComponent textComponent) {
+        return textComponents.add(textComponent);
     }
 
-    public void remove(TextComponent textComponent) {
-        textComponents.remove(textComponent);
+    public boolean remove(TextComponent textComponent) {
+        return textComponents.remove(textComponent);
     }
 }
