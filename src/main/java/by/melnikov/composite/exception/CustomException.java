@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 public class CustomException extends Exception {
     private static final Logger logger = LogManager.getLogger();
+
     public CustomException() {
     }
 

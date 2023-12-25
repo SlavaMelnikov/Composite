@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 public class Main {
     private static final Logger logger = LogManager.getLogger();
     public static final String PATH_TO_FILE = "src//main//resources//text.txt"; //FIXME
+
     public static void main(String[] args) throws CustomException {
         logger.info("Reading from file.");
         TextReader textReader = new FileTextReader();
