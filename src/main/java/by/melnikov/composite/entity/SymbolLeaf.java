@@ -1,11 +1,11 @@
 package by.melnikov.composite.entity;
 
 public class SymbolLeaf implements TextComponent {
-    private TextType textType;
-    private Character symbol;
+    private final TextType symbolType;
+    private final Character symbol;
 
-    public SymbolLeaf(TextType textType, Character symbol) {
-        this.textType = textType;
+    public SymbolLeaf(TextType symbolType, Character symbol) {
+        this.symbolType = symbolType;
         this.symbol = symbol;
     }
 

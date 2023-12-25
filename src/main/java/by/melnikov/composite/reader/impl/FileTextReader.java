@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class TextReaderImpl implements TextReader {
+public class FileTextReader implements TextReader {
     @Override
     public String readText(String path) throws CustomException {
         try {

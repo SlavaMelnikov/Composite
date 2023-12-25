@@ -11,11 +11,15 @@ public class TextComposite implements TextComponent {
         this.textType = type;
     }
 
+    public TextType getTextType() {
+        return textType;
+    }
+
     @Override
     public String composeText() {
         StringBuilder stringBuilder = new StringBuilder();
         for (TextComponent textComponent : textComponents) {
-            stringBuilder.append(textComponent.toString());
+            stringBuilder.append(textComponent.composeText());
         }
         return stringBuilder.toString();
     }
