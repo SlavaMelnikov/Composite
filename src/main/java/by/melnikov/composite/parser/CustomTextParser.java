@@ -2,7 +2,7 @@ package by.melnikov.composite.parser;
 
 import by.melnikov.composite.entity.TextComponent;
 import by.melnikov.composite.entity.TextComposite;
-import by.melnikov.composite.entity.TextType;
+import by.melnikov.composite.entity.TextComponentType;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,7 +16,7 @@ public interface CustomTextParser {
 
     TextComponent parse(String text);
 
-    default TextComponent parseTextTo(String text, TextType parsingResultType, String regex, CustomTextParser successor) {
+    default TextComponent parseTextTo(String text, TextComponentType parsingResultType, String regex, CustomTextParser successor) {
         TextComposite textComposite = new TextComposite(parsingResultType);
         Pattern pattern = Pattern.compile(regex, Pattern.DOTALL);
         Matcher matcher = pattern.matcher(text);

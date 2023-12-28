@@ -2,22 +2,22 @@ package by.melnikov.composite.parser.impl;
 
 import by.melnikov.composite.entity.SymbolLeaf;
 import by.melnikov.composite.entity.TextComponent;
-import by.melnikov.composite.entity.TextType;
+import by.melnikov.composite.entity.TextComponentType;
 import by.melnikov.composite.parser.CustomTextParser;
 
 public class SymbolLeafParser implements CustomTextParser {
     @Override
     public TextComponent parse(String text) {
         char symbol = text.charAt(0);
-        TextType symbolType;
+        TextComponentType symbolType;
         if (Character.isDigit(symbol)) {
-            symbolType = TextType.DIGIT;
+            symbolType = TextComponentType.DIGIT;
         } else if (Character.isLetter(symbol)) {
-            symbolType = TextType.LETTER;
+            symbolType = TextComponentType.LETTER;
         } else if (Character.isWhitespace(symbol)){
-            symbolType = TextType.WHITESPACE;
+            symbolType = TextComponentType.WHITESPACE;
         } else {
-            symbolType = TextType.PUNCTUATION;
+            symbolType = TextComponentType.PUNCTUATION;
         }
         return new SymbolLeaf(symbolType, symbol);
     }

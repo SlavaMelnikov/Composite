@@ -1,10 +1,10 @@
 package by.melnikov.composite.entity;
 
 public class SymbolLeaf implements TextComponent {
-    private final TextType symbolType;
+    private final TextComponentType symbolType;
     private final Character symbol;
 
-    public SymbolLeaf(TextType symbolType, Character symbol) {
+    public SymbolLeaf(TextComponentType symbolType, Character symbol) {
         this.symbolType = symbolType;
         this.symbol = symbol;
     }
@@ -12,5 +12,10 @@ public class SymbolLeaf implements TextComponent {
     @Override
     public String composeText() {
         return symbol.toString();
+    }
+
+    @Override
+    public TextComponentType getTextComponentType() {
+        return symbolType;
     }
 }

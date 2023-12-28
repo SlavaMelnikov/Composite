@@ -1,7 +1,7 @@
 package by.melnikov.composite.parser.impl;
 
 import by.melnikov.composite.entity.TextComponent;
-import by.melnikov.composite.entity.TextType;
+import by.melnikov.composite.entity.TextComponentType;
 import by.melnikov.composite.parser.CustomTextParser;
 
 public class ParagraphToSentencesParser implements CustomTextParser {
@@ -9,6 +9,6 @@ public class ParagraphToSentencesParser implements CustomTextParser {
 
     @Override
     public TextComponent parse(String text) {
-        return parseTextTo(text, TextType.SENTENCE, EXTRACT_SENTENCE_REGEX, sentenceParser);
+        return parseTextTo(text, TextComponentType.SENTENCE, EXTRACT_SENTENCE_REGEX, sentenceParser);
     }
 }

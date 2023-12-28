@@ -23,4 +23,6 @@ public class CustomException extends Exception {
         super(cause);
         logger.error(cause.getMessage());
     }
+
+
 }

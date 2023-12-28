@@ -4,15 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TextComposite implements TextComponent {
-    private final TextType textType;
-    private final List<TextComponent> textComponents = new ArrayList<>();
+    private final TextComponentType type;
+    private List<TextComponent> textComponents = new ArrayList<>();
 
-    public TextComposite(TextType type) {
-        this.textType = type;
-    }
-
-    public TextType getTextType() {
-        return textType;
+    public TextComposite(TextComponentType type) {
+        this.type = type;
     }
 
     @Override
@@ -22,6 +18,18 @@ public class TextComposite implements TextComponent {
             stringBuilder.append(textComponent.composeText());
         }
         return stringBuilder.toString();
+    }
+
+    @Override
+    public TextComponentType getTextComponentType() {
+        return type;
+    }
+    public List<TextComponent> getTextComponents() {
+        return new ArrayList<>(textComponents); //FIXME should return deep copy
+    }
+
+    public void setTextComponents(List<TextComponent> textComponents) {
+        this.textComponents = textComponents;
     }
 
     public boolean add(TextComponent textComponent) {
