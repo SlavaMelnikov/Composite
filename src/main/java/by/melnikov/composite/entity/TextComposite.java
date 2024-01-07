@@ -24,6 +24,8 @@ public class TextComposite implements TextComponent {
     public TextComponentType getTextComponentType() {
         return type;
     }
+
+    @Override
     public List<TextComponent> getTextComponents() {
         return new ArrayList<>(textComponents); //FIXME should return deep copy
     }

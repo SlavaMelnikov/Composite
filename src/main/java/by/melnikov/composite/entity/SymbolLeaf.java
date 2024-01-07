@@ -1,5 +1,8 @@
 package by.melnikov.composite.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SymbolLeaf implements TextComponent {
     private final TextComponentType symbolType;
     private final Character symbol;
@@ -17,5 +20,12 @@ public class SymbolLeaf implements TextComponent {
     @Override
     public TextComponentType getTextComponentType() {
         return symbolType;
+    }
+
+    @Override
+    public List<TextComponent> getTextComponents(){
+        List<TextComponent> oneSymbol = new ArrayList<>();
+        oneSymbol.add(this);
+        return oneSymbol;
     }
 }

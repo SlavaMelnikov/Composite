@@ -1,15 +1,16 @@
 package by.melnikov.composite.main;
 
-import by.melnikov.composite.entity.TextComponent;
+import by.melnikov.composite.entity.TextComposite;
 import by.melnikov.composite.exception.CustomException;
 import by.melnikov.composite.parser.CustomTextParser;
 import by.melnikov.composite.parser.impl.TextToParagraphsParser;
 import by.melnikov.composite.reader.TextReader;
 import by.melnikov.composite.reader.impl.FileTextReader;
-import by.melnikov.composite.service.TextStreamService;
-import by.melnikov.composite.service.impl.TextStreamServiceImpl;
+import by.melnikov.composite.service.TextService;
+import by.melnikov.composite.service.impl.TextServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 
 public class Main {
     private static final Logger logger = LogManager.getLogger();
@@ -24,26 +25,14 @@ public class Main {
 
         logger.info("Parsing and recomposing text:\n");
         CustomTextParser textParser = new TextToParagraphsParser();
-        TextComponent textComposite = textParser.parse(text);
+        TextComposite textComposite = (TextComposite) textParser.parse(text);
         String textAfterParsing = textComposite.composeText();
         System.out.println(textAfterParsing + "\n");
 
-        TextStreamService service = new TextStreamServiceImpl(textComposite);
-
-        logger.info("The paragraphs are sorted by number of sentences:\n");
-        System.out.println(service.sortParagraphsByNumberOfSentences());
-
-        logger.info("The sentence with the longest word:\n");
-        System.out.println(service.findSentenceWithLongestWord());
-
-        logger.info("Text without sentences with words shorter than a given length:\n");
-        System.out.println(service.deleteSentencesShorterThan(10));
-
-        logger.info("The number of similar words in the text:\n");
-        System.out.println(service.countNumberOfSameWords());
-
-        logger.info("The number of vowels and consonants in the sentence:\n");
-        System.out.println(service.countVowelsAndConsonantInSentence());
+        TextService service = new TextServiceImpl(textComposite);
+        System.out.println(service.sortParagraphs());
+        System.out.println(service.findLongestSentence());
+        System.out.println(service.deleteSentenceShorterThan(3));
 
         logger.info("Application completed!");
     }
